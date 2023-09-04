@@ -1,0 +1,36 @@
+{% extends 'aplicacion1/base.html' %}
+{% load static %}
+
+{% block Atras %}
+
+{% endblock Atras %}
+
+{% block Titulo %}
+<div class="text-center">
+    <br>
+    <h1 style="color: green;">
+        Nuevo Avatar
+    </h1> 
+</div>             
+{% endblock Titulo %}
+
+{% block Contenido %}
+<br>
+<br>
+<br>
+<div>
+    <h2>Agregar Avatar</h2>
+    <form action="" method="post" enctype="multipart/form-data"> 
+
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Cargar Imagen">
+    </form>
+</div>
+{% endblock Contenido %}
+
+{% block Menu %}
+    
+{% endblock Menu %}

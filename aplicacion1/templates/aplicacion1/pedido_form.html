@@ -1,0 +1,49 @@
+{% extends 'aplicacion1/base.html' %}
+{% load static %}
+
+
+{% block Atras %}
+<table>
+    <tr>
+        <td width="5">
+            <h4></h4>
+        </td>
+        <td>
+            <a
+            href="{% url 'pedidos' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa-solid fa-reply"></i>
+            </a>   
+        </td>
+    </tr>
+</table>
+{% endblock Atras %}
+    
+{% block Titulo %}
+<div class="text-center t">
+    <br>
+    <br>
+    <br>
+    <h1 style="color: green;">Pedidos</h1> 
+</div>             
+{% endblock Titulo %}
+
+{% block Contenido %}
+<h3>Ingrese los siguientes datos:</h3>
+    <form action="" method="POST">
+        {% csrf_token %} 
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>          
+{% endblock Contenido %}
+
+{% block Observacion %}
+<div class="text-center">
+    <br>
+    <br>
+    <br>
+    <h2></h2>
+</div>                
+{% endblock Observacion %}

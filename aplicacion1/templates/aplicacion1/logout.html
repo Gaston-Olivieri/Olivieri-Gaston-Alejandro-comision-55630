@@ -1,0 +1,41 @@
+{% extends 'aplicacion1/base.html' %}
+{% load static %}
+
+{% block Atras %}
+<table>
+    <tr>
+        <td width="5">
+            <h4></h4>
+        </td>
+        <td>
+            <a
+            href="{% url 'inicio' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa-solid fa-reply"></i>
+            </a>   
+        </td>
+    </tr>
+</table>
+{% endblock Atras %}
+
+{% block Titulo %}
+<div class="text-center">
+    <br>
+    <h1 style="color: green;">
+        Planta de Acopio San Agustin
+    </h1> 
+</div> 
+<br>            
+{% endblock Titulo %}
+
+{% block Contenido %}
+    <h2></h2>
+
+    <h2>
+        <p align="center">¡Se ha cerrado la sesión!</p>
+    </h2>
+{% endblock Contenido %}
+
+{% block Observacion %}
+    
+{% endblock Observacion %}

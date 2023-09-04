@@ -1,0 +1,77 @@
+{% extends 'aplicacion1/base.html' %}
+{% load static %}
+
+{% block Atras %}
+<table>
+    <tr>
+        <td width="5">
+            <h4></h4>
+        </td>
+        <td>
+            <a
+            href="{% url 'transportistas' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa-solid fa-arrows-spin"></i>
+            </a>   
+        </td>
+    </tr>
+</table>
+{% endblock Atras %}
+
+{% block Titulo %}
+<div class="text-center">
+    <br>
+    <h1 style="color: green;">Transportistas</h1> 
+</div>             
+{% endblock Titulo %}
+
+{% block Contenido %}
+<br>
+<h3>Buscar Transportista</h3>
+<br>
+<form action="/buscar" method="get">
+    {% csrf_token %}
+    <p>Transportista/s:<input type="text" placeholder="Texto..." aria-label="Texto..." name="Buscar" id="Buscar"><input type="submit" value="Buscar"></p>
+</form>
+<div class="text-center">
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">Id</th>
+                <th class="text-center">Transportista</th>
+                <th class="text-center">Cuit</th>
+                <th class="text-center">Chofer</th>
+                <th class="text-center">Cuit</th>
+                <th class="text-center">Patente Chasis</th>
+                <th class="text-center">Patente Acoplado</th>
+                <th class="text-center">Observaciones</th>
+                <th class="text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t in transportistas %}
+            <tr>
+                <td class="text-center">{{ t.id }}</td>
+                <td class="text-center">{{ t.transportista }}</td>
+                <td class="text-center">{{ t.cuit_transporte}}</td>
+                <td class="text-center">{{ t.chofer }}</td>
+                <td class="text-center">{{ t.cuit_chofer }}</td>
+                <td class="text-center">{{ t.patente_chasis }}</td>
+                <td class="text-center">{{ t.patente_acoplado }}</td>
+                <td class="text-center">{{ t.observacion }}</td>      
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>      
+{% endblock Contenido %}
+
+{% block Observacion %}
+<div class="text-center">
+    <br>
+    <br>
+    <br>
+    <h2></h2>
+    <h3></h3> 
+</div>             
+{% endblock Observacion %}

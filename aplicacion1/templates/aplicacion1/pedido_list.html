@@ -1,0 +1,88 @@
+{% extends 'aplicacion1/base.html' %}
+{% load static %}
+
+{% block Atras %}
+
+{% endblock Atras %}
+
+{% block Titulo %}
+<div class="text-center">
+    <br>
+    <h1 style="color: green;">Pedidos</h1> 
+</div>             
+{% endblock Titulo %}
+
+{% block Contenido %}
+<div class="text-center">
+    <table>
+        <tr>
+            <td width="180"><h3>Crear pedido</h3></td>
+            <td>
+                <a
+                href="{% url 'create_pedidos' %}"
+                class="btn btn-primary btn-sm"
+                ><i class="fa fa-plus fa-lg" title="New Record"> </i>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="text-center">
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">Id</th>
+                <th class="text-center">Fecha</th>
+                <th class="text-center">Sucursal</th>
+                <th class="text-center">Cuenta</th>
+                <th class="text-center">Horario</th>
+                <th class="text-center">Ubicacion</th>
+                <th class="text-center">Transportista</th>
+                <th class="text-center">Cumplido</th>
+                <th class="text-center">Observaciones</th>
+                <th class="text-center"></th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for pedidos in pedido_list %}
+            <tr>
+                <td class="text-center">{{ pedidos.id }}</td>
+                <td class="text-center">{{ pedidos.fecha }}</td>
+                <td class="text-center">{{ pedidos.sucursal }}</td>
+                <td class="text-center">{{ pedidos.cuenta }}</td>
+                <td class="text-center">{{ pedidos.horario }}</td>
+                <td class="text-center">{{ pedidos.ubicacion }}</td>
+                <td class="text-center">{{ pedidos.transportista }}</td>
+                <td class="text-center">{{ pedidos.cumplimiento }}</td>
+                <td class="text-center">{{ pedidos.observacion }}</td>
+                <td>
+                    <a
+                    href="{% url 'update_pedidos' pedidos.id %}"
+                    class="btn btn-primary"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                    </a>
+                    <a
+                    href="{% url 'delete_pedidos' pedidos.id %}"
+                    class="btn btn-danger"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                    </a>
+                </td>        
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>      
+{% endblock Contenido %}
+
+{% block Observacion %}
+<div class="text-center">
+    <br>
+    <br>
+    <br>
+    <h2></h2>
+    <h3></h3> 
+</div>                 
+{% endblock Observacion %}

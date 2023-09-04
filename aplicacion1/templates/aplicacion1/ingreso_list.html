@@ -1,0 +1,98 @@
+{% extends 'aplicacion1/base.html' %}
+{% load static %}
+
+{% block Atras %}
+
+{% endblock Atras %}
+
+{% block Titulo %}
+<div class="text-center">
+    <br>
+    <h1 style="color: green;">Ingresos</h1> 
+</div>             
+{% endblock Titulo %}
+
+{% block Contenido %}
+<br>
+<div class="text-center">
+    <table>
+        <tr>
+            <td width="190"><h3>Añadir ingreso</h3></td>
+            <td>
+                <a
+                href="{% url 'create_ingresos' %}"
+                class="btn btn-primary btn-sm"
+                ><i class="fa fa-plus fa-lg" title="New Record"> </i>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="text-center">
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">Id</th>
+                <th class="text-center">Fecha</th>
+                <th class="text-center">Cuenta</th>
+                <th class="text-center">CPE</th>
+                <th class="text-center">Chofer</th>
+                <th class="text-center">Grano</th>
+                <th class="text-center">Humedad Chasis</th>
+                <th class="text-center">Humedad Acoplado</th>
+                <th class="text-center">Promedio</th>
+                <th class="text-center">Bruto</th>
+                <th class="text-center">Tara</th>
+                <th class="text-center">Neto</th>
+                <th class="text-center">Observaciones</th>
+                <th class="text-center">Ticket</th>
+                <th class="text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ingresos in ingreso_list %}
+            <tr>
+                <td class="text-center">{{ ingresos.id }}</td>
+                <td class="text-center">{{ ingresos.fecha }}</td>
+                <td class="text-center">{{ ingresos.cuenta }}</td>
+                <td class="text-center">{{ ingresos.cpe }}</td>
+                <td class="text-center">{{ ingresos.chofer }}</td>
+                <td class="text-center">{{ ingresos.grano }}</td>
+                <td class="text-center">{{ ingresos.humedad_chasis }}</td>
+                <td class="text-center">{{ ingresos.humedad_acoplado }}</td>
+                <td class="text-center">{{ ingresos.promedio }}</td>
+                <td class="text-center">{{ ingresos.bruto }}</td>
+                <td class="text-center">{{ ingresos.tara }}</td>
+                <td class="text-center">{{ ingresos.neto }}</td>
+                <td class="text-center">{{ ingresos.observacion }}</td>
+                <td class="text-center">{{ ingresos.ticket }}</td>
+                <td>
+                    <a
+                    href="{% url 'update_ingresos' ingresos.id %}"
+                    class="btn btn-primary"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                    </a>
+                    <a
+                    href="{% url 'delete_ingresos' ingresos.id %}"
+                    class="btn btn-danger"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                    </a>
+                </td>        
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>      
+{% endblock Contenido %}
+
+{% block Observacion %}
+<div class="text-center">
+    <br>
+    <br>
+    <br>
+    <h2></h2>
+    <h3></h3> 
+</div>             
+{% endblock Observacion %}

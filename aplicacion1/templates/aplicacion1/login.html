@@ -1,0 +1,35 @@
+{% extends 'aplicacion1/base.html' %}
+{% load static %}
+
+{% block Atras %}
+
+{% endblock Atras %}
+
+{% block Titulo %}
+<div class="text-center">
+    <br>
+    <h1 style="color: green;">
+        Iniciar Sesión
+    </h1> 
+</div>             
+{% endblock Titulo %}
+
+{% block Contenido %}
+<br>
+<br>
+<br>
+<div>
+<h2>Complete los siguientes campos:</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+</div>
+{% endblock Contenido %}
+
+{% block Observacion %}
+    
+{% endblock Observacion %}

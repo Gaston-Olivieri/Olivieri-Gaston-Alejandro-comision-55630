@@ -1,0 +1,89 @@
+{% extends 'aplicacion1/base.html' %}
+{% load static %}
+
+{% block Atras %}
+
+{% endblock Atras %}
+
+{% block Titulo %}
+<div class="text-center">
+    <br>
+    <h1 style="color: green;">Salidas</h1> 
+</div>             
+{% endblock Titulo %}
+
+{% block Contenido %}
+<div class="text-center">
+    <table>
+        <tr>
+            <td width="190"><h3>Añadir Cupo</h3></td>
+            <td>
+                <a
+                href="{% url 'create_salidas' %}"
+                class="btn btn-primary btn-sm"
+                ><i class="fa fa-plus fa-lg" title="New Record"> </i>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="text-center">
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">Id</th>
+                <th class="text-center">Fecha</th>
+                <th class="text-center">Grano</th>
+                <th class="text-center">Cupo</th>
+                <th class="text-center">CPE</th>
+                <th class="text-center">Transportista</th>
+                <th class="text-center">Bruto</th>
+                <th class="text-center">Tara</th>
+                <th class="text-center">Neto</th>
+                <th class="text-center">Observaciones</th>
+                <th class="text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for salidas in salida_list %}
+            <tr>
+                <td class="text-center">{{ salidas.id }}</td>
+                <td class="text-center">{{ salidas.fecha }}</td>
+                <td class="text-center">{{ salidas.grano }}</td>
+                <td class="text-center">{{ salidas.cupo }}</td>
+                <td class="text-center">{{ salidas.cpe }}</td>
+                <td class="text-center">{{ salidas.transportista }}</td>
+                <td class="text-center">{{ salidas.bruto }}</td>
+                <td class="text-center">{{ salidas.tara }}</td>
+                <td class="text-center">{{ salidas.neto }}</td>
+                <td class="text-center">{{ salidas.observacion }}</td>
+                <td>
+                    <a
+                    href="{% url 'update_salidas' salidas.id %}"
+                    class="btn btn-primary"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                    </a>
+                    <a
+                    href="{% url 'delete_salidas' salidas.id %}"
+                    class="btn btn-danger"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                    </a>
+                </td>        
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>      
+{% endblock Contenido %}
+
+{% block Observacion %}
+<div class="text-center">
+    <br>
+    <br>
+    <br>
+    <h2></h2>
+    <h3></h3> 
+</div>             
+{% endblock Observacion %}

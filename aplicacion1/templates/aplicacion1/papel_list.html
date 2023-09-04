@@ -1,0 +1,111 @@
+{% extends 'aplicacion1/base.html' %}
+{% load static %}
+
+{% block Atras %}
+
+{% endblock Atras %}
+
+{% block Titulo %}
+<div class="text-center">
+    <br>
+    <h1 style="color: green;">Documentacion Transportistas</h1> 
+</div>             
+{% endblock Titulo %}
+
+{% block Contenido %}
+<br>
+<div class="text-center">
+    <table>
+        <tr>
+            <td width="330"><h3>Agregar Documentacion</h3></td>
+            <td>
+                <a
+                href="{% url 'create_papeles' %}"
+                class="btn btn-primary btn-sm"
+                ><i class="fa fa-plus fa-lg" title="New Record"> </i>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="text-center">
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">Id</th>
+                <th class="text-center">Transportista</th>
+                <th class="text-center">Cuit</th>
+                <th class="text-center">Chofer</th>
+                <th class="text-center">Cuit</th>
+                <th class="text-center">Patente Chasis</th>
+                <th class="text-center">Técnica Chasis</th>
+                <th class="text-center">R.U.T.A Chasis</th>
+                <th class="text-center">Seguro Chasis</th>
+                <th class="text-center">Patente Acoplado</th>
+                <th class="text-center">Técnica Acoplado</th>
+                <th class="text-center">R.U.T.A Acoplado</th>
+                <th class="text-center">Seguro Acoplado</th>
+                <th class="text-center">Seguro Carga</th>
+                <th class="text-center">Importe</th>
+                <th class="text-center">Licencia Conducir</th>
+                <th class="text-center">Psicofísico</th>
+                <th class="text-center">Cuota Sindical</th>
+                <th class="text-center">ART</th>
+                <th class="text-center">Seguro de Vida</th>
+                <th class="text-center">Telefono</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for papeles in papel_list %}
+            <tr>
+                <td>{{ papeles.id }}</td>
+                <td>{{ papeles.transportista }}</td>
+                <td>{{ papeles.cuit_transporte }}</td>
+                <td>{{ papeles.chofer }}</td>
+                <td>{{ papeles.cuit_chofer }}</td>
+                <td>{{ papeles.patente_chasis }}</td>
+                <td>{{ papeles.tecnica_chasis }}</td>
+                <td>{{ papeles.ruta_chasis }}</td>
+                <td>{{ papeles.seguro_chasis }}</td>
+                <td>{{ papeles.patente_acoplado }}</td>
+                <td>{{ papeles.tecnica_acoplado }}</td>
+                <td>{{ papeles.ruta_acoplado }}</td>
+                <td>{{ papeles.seguro_acoplado }}</td>
+                <td>{{ papeles.seguro_carga }}</td>
+                <td>{{ papeles.importe }}</td>
+                <td>{{ papeles.licencia }}</td>
+                <td>{{ papeles.psicofisico }}</td>
+                <td>{{ papeles.cuota_sindical }}</td>
+                <td>{{ papeles.art }}</td>
+                <td>{{ papeles.seguro_vida }}</td>
+                <td>{{ papeles.telefono }}</td>
+                <td>
+                    <a
+                    href="{% url 'update_papeles' papeles.id %}"
+                    class="btn btn-primary"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                    </a>
+                    <a
+                    href="{% url 'delete_papeles' papeles.id %}"
+                    class="btn btn-danger"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                    </a>
+                </td>        
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>      
+{% endblock Contenido %}
+
+{% block Observacion %}
+<div class="text-center">
+    <br>
+    <br>
+    <br>
+    <h2></h2>
+    <h3></h3> 
+</div>                 
+{% endblock Observacion %}

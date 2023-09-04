@@ -1,0 +1,41 @@
+{% extends 'aplicacion1/base.html' %}
+{% load static %}
+
+{% block Atras %}
+<table>
+    <tr>
+        <td width="5">
+            <h4></h4>
+        </td>
+        <td>
+            <a
+            href="{% url 'inicio' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa-solid fa-reply"></i>
+            </a>   
+        </td>
+    </tr>
+</table>
+{% endblock Atras %}
+
+{% block Titulo %}
+<div class="text-center">
+    <br>
+    <h1 style="color: green;">
+        Planta de Acopio San Agustin
+    </h1> 
+</div>             
+{% endblock Titulo %}
+
+{% block Contenido %}
+<br>
+<br>
+<br>
+<div class="text-center">
+<h2>¡Se ha Registrado correctamente!</h2>
+</div>
+{% endblock Contenido %}
+
+{% block Menu %}
+    
+{% endblock Menu %}

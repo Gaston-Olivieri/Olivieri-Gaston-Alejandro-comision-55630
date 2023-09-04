@@ -1,0 +1,50 @@
+{% extends 'aplicacion1/base.html' %}
+{% load static %}
+
+{% block Titulo %}
+<div class="text-center t">
+    <br>
+    <br>
+    <br>
+    <h1 style="color: green;">Contactos</h1> 
+</div>             
+{% endblock Titulo %}
+
+{% block Contenido %}
+<h1>Encuentranos en:</h1>
+<div class="text-center">
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Sucursal</th>
+                <th>Dirección</th>
+                <th>Horarios</th>
+                <th>Telefono 1</th>
+                <th>Telefono 2</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for c in contactos %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.sucursal }}</td>
+                <td>{{ c.direccion }}</td>
+                <td>{{ c.horario }}</td>
+                <td>{{ c.telefono }}</td>
+                <td>{{ c.telefono2 }}</td>
+            </tr>    
+    {% endfor %}
+        </tbody>         
+    </table> 
+</div>                  
+{% endblock Contenido %}
+
+{% block Observacion %}
+<div class="text-center">
+    <br>
+    <br>
+    <br>
+    <h2></h2>
+</div>                   
+{% endblock Observacion %}
